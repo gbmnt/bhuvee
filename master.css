@@ -1,0 +1,454 @@
+ html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+
+}
+
+body{
+    cursor:crosshair;
+ 
+}
+
+.content{
+    width: 60%;
+    margin: 0 auto;
+    z-index: -1;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    transform: translate(0,-50%);
+
+}
+
+.content h5{
+    font-family: Poppins;
+    font-size: 32px;
+    color: #101010;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+
+.content p{
+    /* float: left; */
+    margin-top: 0;
+    text-align: left;
+    color: #101010;
+    font-weight: 400;
+}
+.content1 h5{
+    font-family: Poppins;
+    font-size: 32px;
+    color: #101010;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 700px;
+    margin-left: 83px;
+    
+
+}
+
+.content1 p{
+    /* float: left; */
+    margin-top: 0;
+    text-align: left;
+    color: #101010;
+    font-weight: 400;
+}
+.overlay-2{
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #48A9A6;
+}
+.overlay{
+    z-index:1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    bottom:0;
+    right: 0;
+
+    background: url(img/terra_1.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+
+}
+
+.overlay p{
+    font-size: 144px;
+    font-weight: 550;
+    background: #101010;
+    height: 40%;           /*271px;*/
+    width: 100%;          /*1360px;*/
+    margin-top: 300px;
+    position: fixed;
+
+}
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+    .overlay p {
+      font-size: 144px;
+      font-weight: 550;
+    }
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    .overlay p {
+      font-size: 90px;
+      font-weight: 280;
+      word-spacing: 70px;
+   
+    }
+  }
+
+.screen{
+    color: #323232;
+    font-family: Poppins;
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
+}
+/* .header{
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: (-50%, -50%);
+}
+
+.header h1{
+    color: #fff;
+    font-family: "Flash Back - Demo";
+    font-size: 120px;
+
+} */
+span{
+    color:#e02626;
+    margin-left: 10%;
+
+}
+
+.myBtn{
+    font-family: Poppins;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 40px;
+}
+button{
+    display: block;
+    padding: 24px 48px;
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: #fff;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    background: none;
+    z-index: 1;
+    cursor: crosshair;
+    transition: 0.8s ease-out;
+}
+
+.myBtn:hover{
+    color: #101010;
+    cursor: crosshair;
+}
+
+.myBtn:before{
+    content: "";
+    position: absolute;
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.8s ease-out;
+}
+
+.myBtn:hover:before{
+    top: 0;
+} 
+
+.grid-container {
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   grid-gap: 90px;
+}
+.grid-container1 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+ }
+
+.card,{
+    margin-top: -130px;
+
+}
+
+.card-head{
+    position: relative;
+    height: 194px;
+    width: 264px;
+    background: #fa782e;
+    background: -moz-linear-gradient(-45deg,#fff 8%, #48A9A6 83%);/*FF3.6-15*/
+    background: -webkit-linear-gradient(-45deg,#fff 8%, #48A9A6 83%);/*chrome10-25, Safari5.1-6*/
+    background: linear-gradient(135deg, #fff 8%,#48A9A6 83%);/*chrome26+,opera12+,Safari7+,W3C,IE10+,FF16+,Opera12*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa782e',endColorstr='#c82930',GradientType=1);/*IE6-9 fallback on horizontal gradient*/
+    border-radius: 25px 25px 0 0;
+}
+.card-logo{
+    width: 80px;
+    margin: 15px;
+}
+/* .product{
+    height: 50px;
+    width: 70px;
+    position: absolute;
+    left: 0;
+    margin-top: -16px;
+    margin-left: 50px;
+} */
+.product{
+        height: 137px;
+        width: 170px;
+        position: absolute;
+        left: 0;
+        margin-top: 110px;
+        margin-left: 18%;
+        border-radius: 50%;
+        border: 2px solid orange;
+        box-shadow: 2px 2px 2px orange;
+        -webkit-transition: width .3s, height .3s, -webkit-transform .3s;  /* For Safari 3.1 to 6.0 */
+        transition: width .3s, height .3s, transform .3s;
+        }
+
+
+.product:hover{
+    width: 180px;
+    height: 150px;
+}
+
+
+.product-details{
+    padding: 0 15px;
+    font-size: 11px;
+    color: #e02626;
+}
+
+.product-details h2{
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    margin-top: -3px;
+}
+
+.back-text{
+    display: inline-flex;
+    font-size: 57px; /*125px; */
+    font-weight: 900;
+    margin-left: 1px;
+    margin-top: 55px;
+    opacity: 0.1;
+    color: #353535;
+}
+
+.card-body
+{
+    height: 230px;
+    width: 264px;
+    background: #fff;
+    border-radius: 0 0 25px 25px;
+    background-color: #353535;
+}
+
+.product-title
+{
+    padding: 20px 5px 5px 5px;
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 17px;
+}
+
+.product-title b{
+    font-weight: 900;
+    letter-spacing: 0px;
+}
+
+.badge{
+    position: relative;
+    font-size:10px;
+    font-weight: 300;
+    color: #fff;
+    background: #11e95b;
+    padding: 2px 5px;
+    border-radius: 4px;
+    top: -2px;
+    margin-left: 5px;
+}
+
+.product-caption{
+    display:block;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-left: 2px;
+}
+/* .product-size h4{
+    font-size: 11px;
+    padding: 0 21px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+} */
+.ul-size{
+    margin-left: 15px;
+}
+
+.ul-size li{
+    list-style: none;
+    float:left;
+    margin-right: 20px;
+}
+.ul-size li a{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 23px;
+    color: #000;
+}
+.ul-size li a.active{
+    background: #f35e3d;
+    color: #fff;
+}
+
+.product-size:before, .product-size:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.product-color h4{
+    font-size: 11px;
+    padding: 0 21px;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+.ul-color{
+    margin-left: 15px;
+}
+.ul-color li{
+    list-style: none;
+    float: left;
+    margin-right: 20px;
+}
+.ul-color li a{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+}
+
+.ul-color li a.orange{
+    background: #f35e3d;
+}
+
+.ul-color li a.green{
+    background: #11e95b;
+}
+
+.ul-color li a.black{
+    background: #000;
+}
+.ul-color li a.active:after{
+    position: absolute;
+    content: '';
+    display: inline-block;
+    border: 1px solid #f35e3d;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    margin-left: -5px;
+    margin-top: -5px;
+
+}
+
+.product-price{
+    position: absolute;
+    text-align: center;
+    display: flex;
+    font-size: 26px;
+    color: #fff;
+    margin-top: 80px;
+    margin-left: 12%;
+    
+}
+
+.product-striked-price{
+    position: absolute;
+    text-align: center;
+    display: flex;
+    font-size: 15px;
+    font-weight: 150;
+    color: #fff;
+    margin-top: 120px;
+    margin-left: 14%;
+    text-decoration: line-through;
+    
+}
+
+.product-desc{
+    position: absolute;
+    text-align: center;
+    display: flex;
+    font-size: 15px;
+    font-weight: 150;
+    color: #fff;
+    margin-top: 152px;
+    margin-left: 4%;
+}
+.addToCart{
+    height: 35px;
+    width: 100px;
+    background-color: #cb3843;
+    border-radius: 25px;
+    font-family: arial;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    top: 93%;
+    left: 4%;
+    transform: translate(50%,50%);
+    cursor: pointer;
+}
