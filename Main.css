@@ -1,0 +1,159 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: whitesmoke;
+}
+
+.main {
+  margin-top: 20px;
+  right: -1092px;
+  transition: 2s;
+  /* display: none; */
+}
+
+.infoSection {
+  height: 424px;
+  width: 1092px;
+  background-color: #0d1f2d;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-details {
+  float: left;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.productName {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  margin-left: 5px;
+}
+
+.price {
+  font-family: arial;
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.imgSection {
+  height: 426px;
+  float: left;
+  padding: 30px;
+  background: silver;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.placeOrder {
+  margin-top: 50px;
+  padding: 10px;
+  background-color: green;
+  border-radius: 50px;
+  font-family: arial;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.vl {
+  height: 366px;
+  width: 2px;
+  background-color: white;
+  float: left;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.offer-details {
+  float: left;
+  padding: 20px;
+  margin-top: 20px;
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+small {
+  width: 170px;
+    /* display: inline-block; */
+    align-self: center;
+}
+
+.previous {
+  left: 0;
+  position: absolute;
+  top: 50%;
+}
+
+.next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.footer-container {
+  position: relative;
+}
+
+.gap{
+  margin-top: 40px;
+  
+}
+
+
+
+
+
+
+
+
+.soon-container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width:238px;
+  height: 256px;
+  border: 2px solid sliver;
+  border-radius: 20px;
+}
+
+.soon-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width:238px;
+  height: 256px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #cb3843;
+}
+
+.soon-container:hover .soon-overlay {
+  opacity: 1;
+}
+
+.soon-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
