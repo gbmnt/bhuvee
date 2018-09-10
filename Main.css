@@ -84,7 +84,8 @@ body {
 small {
   width: 170px;
     /* display: inline-block; */
-    align-self: center;
+  align-self: center;
+  color: white;
 }
 
 .previous {

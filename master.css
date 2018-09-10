@@ -415,6 +415,15 @@ a:hover {
   color: black;
 }
 
+.soon-text a:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.soon-text a {
+  color: white;
+}
+
 .previous {
   background-color: #f1f1f1;
   color: black;

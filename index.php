@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Learning GSAP</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
   <link rel="stylesheet" href="master.css">
   <link href="Main.css" rel="stylesheet" />
   <link href="slide.css" rel="stylesheet" />
@@ -16,11 +17,13 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"> 
   <link href="fontawesome-free-5.0.9/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+
   
   <script src="https://code.jquery.com/jquery-1.10.2.min.js" integrity="sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
     crossorigin="anonymous"></script>
- 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="main.js"></script>
 </head>
 
@@ -33,6 +36,7 @@
     </p>
     <div class="intro">
       <button class="myBtn" onclick="fadeOut()">EXPLORE</button>
+      <img src="img/logo.png" height=100 width=150/>
     </div>
   </div>
     <!--s<div class="overlay-2"></div>
@@ -53,7 +57,7 @@
         <div class="card-body">
           <div class="product-properties">
             <h2>Rs 1,500</h2>
-            <h6>Rs 2,000</h6>
+            <strike><h6>Rs 2,000</h6></strike>
             <p>Lorem ipsum dolor sit amet con </br>sectetur adipisicing elit.</p>
             <div class="addToCart" onclick="fadeIn()">ORDER NOW</div>
           </div>
@@ -67,7 +71,7 @@
         <div class="card-body">
           <div class="product-properties">
             <h2>Rs 1,500</h2>
-            <h6>Rs 2,000</h6>
+            <strike><h6>Rs 2,000</h6></strike>
             <p>Lorem ipsum dolor sit amet con </br>sectetur adipisicing elit.</p>
             <div class="addToCart" onclick="fadeIn()">ORDER NOW</div>
 
@@ -82,7 +86,7 @@
         <div class="card-body">
           <div class="product-properties">
             <h2>Rs 1,500</h2>
-            <h6>Rs 2,000</h6>
+            <strike><h6>Rs 2,000</h6></strike>
             <p>Lorem ipsum dolor sit amet con </br>sectetur adipisicing elit.</p>
             <div class="addToCart" onclick="fadeIn()">ORDER NOW</div>
           </div>
@@ -140,7 +144,7 @@
         <div class="message-block">
             <div>
               <h4><center>PLEASE FILL UP THE INFORFATION</center></h4>
-                <form action="/action_page.php">
+                <form>
                   <label for="full-name" style="color: #d58512;">Full Name</label>
                   <input type="text" id="full-name" name="full-name" placeholder="ex: Jhon Wick" style="border-color: #985f0d;">
               
@@ -151,14 +155,11 @@
                   <input type="number" id="number" name="phone-no" placeholder="ex: 9876543210" style="border-color: #985f0d;">
 
                   <label for="message" style="color: #d58512;">Message</label>
-                  <textarea rows="4" id="messge" cols="50" style="border-color: #985f0d;">
-                    At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
-                  </textarea>
+                  <textarea rows="4" id="message" name="message" cols="50" placeholder="Write message for quick response." style="border-color: #985f0d;"></textarea>
                 
-                  <input type="submit" value="Submit">
+                  <input type="submit" value="Submit" name="submit">
                 </form>
               </div>
-
         </div>
         </div>
       </div>
@@ -227,6 +228,43 @@
 </html>
 
 <script>
+
+
+$(document).ready(function () {
+
+  toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url : "mail.php",
+            type: "POST", 
+            data: $(this).serialize(),
+            success: function (data) {
+              toastr["success"]("Thank you!! for showing interest. \n We will get back to you soon.");
+            },
+            error: function (jXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    });
+});
+
     function fadeOut() {
       TweenMax.to(".myBtn", 1, {
         y: -100,
