@@ -13,10 +13,10 @@ $phone_no = $_POST['phone-no'];
 $message = $_POST['message'];
 
 $email = new \SendGrid\Mail\Mail(); 
-$email->setSmtpapiTos(["satyam123.sr@gmail.com"]);
+// $email->setSmtpapiTos(["satyam123.sr@gmail.com"]);
 $email->setFrom($email_address, "Bhuvee Client");
 $email->setSubject("Enquiry");
-// $email->addTo("satyam123.sr@gmail.com", $full_name);
+$email->addTo("satyam123.sr@gmail.com", $full_name);
 $email->addContent("text/html", $message."\n\rPhone No: ".$phone_no);
 
 $sendgrid = new \SendGrid('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');
