@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Learning GSAP</title>
+  <title>Bhuvee</title>
   <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
   <link rel="stylesheet" href="master.css">
   <link href="Main.css" rel="stylesheet" />
