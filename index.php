@@ -50,7 +50,7 @@
   <br><br>
   <div class="content">
     <div class="grid-container">
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-head">
           <img src="img/terra_1.jpg" alt="product" class="product">
         </div>
@@ -91,35 +91,14 @@
             <div class="addToCart" onclick="fadeIn()">ORDER NOW</div>
           </div>
         </div>
-      </div>
-      <a href="#" class="previous">&laquo;</a>
-      <a href="#" class="next">&raquo;</a>
+      </div> -->
     </div>
     <div class="main">
       <div class="infoSection">
           <span class="close cursor" onclick="closeModal()">&times;</span>
           <div class="product-block"> 
           <div class="imgSection">
-            <div class="container">
-              <!-- <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span> -->
-              <img src="terra_1.jpg" id="expandedImg" style="width:440px">
-              <div id="imgtext">Nature</div>
-            </div>
-            <!-- The four columns -->
-            <div class="row">
-              <div class="column">
-                <img src="terra_1.jpg" alt="Nature" style="width:100%" onclick="myFunction(this);">
-              </div>
-              <div class="column">
-                <img src="terra_1.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
-              </div>
-              <div class="column">
-                <img src="terra_1.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
-              </div>
-              <div class="column">
-                <img src="terra_1.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
-              </div>
-            </div>
+            
           </div>
           <div class="product-details">
             <h1 class="productName">HESH-1 WIRELESS</h1>
@@ -127,7 +106,7 @@
             <hr>
             <div class="product-description">
                 <table>
-                  <tr> <td colspan="5" class="table-title"><strong>Material</strong></td> <td class="table-description">Yellow</td> </tr>
+                  <!-- <tr> <td colspan="5" class="table-title"><strong>Material</strong></td> <td class="table-description">Yellow</td> </tr> -->
                   <tr> <td colspan="5" class="table-title"><strong>Description</strong></td> 
                     <td class="table-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
 
@@ -138,13 +117,14 @@
           </div>
           <div class="vl"></div>
           <div class="offer-details">
-            <div><img src="./img/Special-offer-PNG.png" width="30" height="30"><small>Special PriceGet extra ₹4 off T&C</small></div>  
+            <!-- <div><img src="./img/Special-offer-PNG.png" width="30" height="30"><small>Special PriceGet extra ₹4 off T&C</small></div>   -->
           </div>
         </div>
         <div class="message-block">
             <div>
               <h4><center>PLEASE FILL UP THE INFORFATION</center></h4>
                 <form>
+                  <input type="hidden" id="item" name="item" value="">
                   <label for="full-name" style="color: #d58512;">Full Name</label>
                   <input type="text" id="full-name" name="full-name" placeholder="ex: Jhon Wick" style="border-color: #985f0d;">
               
@@ -228,106 +208,209 @@
 </html>
 
 <script>
+var productList = [{
+    name: "Choker",
+    price: "650",
+    description: "Hand made terracotta jewellery",
+    primary_img: "choker/1.jpg",
+    dir: "choker",
+    img: [
+      '1', '2', '3', '4', '5', '6', '7'
+    ]
+  },
+  {
+    name: "Choker and Necklace",
+    price: "1200",
+    description: "Hand made terracotta jewellery. <br>It can be worn both as necklace and choker.",
+    primary_img: "choker&necklace/1.jpg",
+    dir: "choker&necklace",
+    img: [
+      '1', '2', '3', '4', '5', '6', '7'
+    ]
+  },
+  {
+    name: "Daily wear",
+    price: "300",
+    description: "Hand made terracotta jewellery",
+    primary_img: "dailywear/1.jpg",
+    dir: "dailywear",
+    img: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'
+    ]
+  },
+  {
+    name: "Long necklace",
+    price: "800",
+    description: "Hand made terracotta jewellery",
+    primary_img: "necklace/1.jpg",
+    dir: "necklace",
+    img: [
+      '1', '2', '3', '4', '5', '6', '7', '8'
+    ]
+  },
+  {
+    name: "Long necklace",
+    price: "1350",
+    description: "Hand made terracotta jewellery",
+    primary_img: "long_necklace/1.jpg",
+    dir: "long_necklace",
+    img: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9'
+    ]
+  }
+];
 
 
 $(document).ready(function () {
 
   toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-};
-    $('form').on('submit', function(e) {
-        e.preventDefault();
-        $.ajax({
-            url : "mail.php",
-            type: "POST", 
-            data: $(this).serialize(),
-            success: function (data) {
-              toastr["success"]("Thank you!! for showing interest. \n We will get back to you soon.");
-            },
-            error: function (jXHR, textStatus, errorThrown) {
-                alert(errorThrown);
-            }
-        });
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
+
+  var card = '';
+  var index = 0;
+  productList.forEach(element => {
+    card = card + '<div class="card">' +
+      '<div class="card-head">' +
+      '<img src="img/' + element.primary_img + '" alt="product" class="product">' +
+      '</div>' +
+      '<div class="card-body">' +
+      '<div class="product-properties">' +
+      '<h2>Rs ' + element.price + '</h2>' +
+      '<p>' + element.description + '</p>' +
+      // '<div class="addToCart" onclick="fadeIn(' + element + ')">ORDER NOW</div>' +
+      '<div class="addToCart" onclick="fadeIn(' + index + ')">ORDER NOW</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+
+    index++;
+  })
+  card = card + '<a href="#" class="previous">&laquo;</a>';
+  card = card + '<a href="#" class="next">&raquo;</a>';
+  $('.grid-container').html(card)
+
+  $('form').on('submit', function (e) {
+    e.preventDefault();
+    $.ajax({
+      url: "mail.php",
+      type: "POST",
+      data: $(this).serialize(),
+      success: function (data) {
+        toastr["success"]("Thank you!! for showing interest. \n We will get back to you soon.");
+      },
+      error: function (jXHR, textStatus, errorThrown) {
+        alert(errorThrown);
+      }
     });
+  });
 });
 
-    function fadeOut() {
-      TweenMax.to(".myBtn", 1, {
-        y: -100,
-        opacity: 0
-      });
-      TweenMax.to(".screen", 2, {
-        y: -400,
-        opacity: 0,
-        ease: Power2.easeInOut,
-        delay: 2,
-        display: "none"
-      });
-      TweenMax.from(".overlay", 2, {
-        ease: Power2.easeInOut
-      });
-      TweenMax.to(".overlay", 2, {
-        delay: 2,
-        top: "-110%",
-        ease: Expo.easeInOut
-      });
+function fadeOut() {
+  TweenMax.to(".myBtn", 1, {
+    y: -100,
+    opacity: 0
+  });
+  TweenMax.to(".screen", 2, {
+    y: -400,
+    opacity: 0,
+    ease: Power2.easeInOut,
+    delay: 2,
+    display: "none"
+  });
+  TweenMax.from(".overlay", 2, {
+    ease: Power2.easeInOut
+  });
+  TweenMax.to(".overlay", 2, {
+    delay: 2,
+    top: "-110%",
+    ease: Expo.easeInOut
+  });
 
-      TweenMax.from(".content", 2, {
-        delay: 2.7,
-        opacity: 0,
-        ease: Power2.easeInOut
-      });
-      TweenMax.to(".content", 2, {
-        opacity: 1,
-        delay: 2.7,
-        ease: Power2.easeInOut
-      });
+  TweenMax.from(".content", 2, {
+    delay: 2.7,
+    opacity: 0,
+    ease: Power2.easeInOut
+  });
+  TweenMax.to(".content", 2, {
+    opacity: 1,
+    delay: 2.7,
+    ease: Power2.easeInOut
+  });
 
-      document.getElementsByClassName("main-content")[0].style.display = "block";
-    }
+  document.getElementsByClassName("main-content")[0].style.display = "block";
+}
 
-    function fadeIn() {
-      var imageSection = document.getElementsByClassName("grid-container");
-      imageSection[0].style.display = "none";
-      var main = document.getElementsByClassName("main");
-      main[0].style.display = "block";
+function fadeIn(index) {
+  var imageSection = document.getElementsByClassName("grid-container");
+  imageSection[0].style.display = "none";
+  var main = document.getElementsByClassName("main");
+  main[0].style.display = "block";
+  var productBlock = document.getElementsByClassName("product-block");
+  productBlock[0].style.display = "block";
+  var messageBlock = document.getElementsByClassName("message-block");
+  messageBlock[0].style.display = "none";
 
-    }
+  var item = productList[index];
 
-    function closeModal() {
-      var imageSection = document.getElementsByClassName("grid-container");
-      imageSection[0].style.display = "grid";
-      var main = document.getElementsByClassName("main");
-      main[0].style.display = "none"; 
-    }
+  $('.table-description').html(item.description);
+  $('.productName').html(item.name);
+  $('.price').html('Rs. ' + item.price);
 
-    function preorder() {
-      var productBlock = document.getElementsByClassName("product-block");
-      productBlock[0].style.display = "none";
-      var messageBlock = document.getElementsByClassName("message-block");
-      messageBlock[0].style.display = "block";
-    }
+  $('#item').val(item.name);
 
-    var $page = $('.page');
-    $('.menu_toggle').on('click', function () {
-      $page.toggleClass('shazam');
-    });
+  var images = '<div class="container">' +
+    '<img src="img/' + item.primary_img + '" id="expandedImg" style="width:440px;  height: 250px;">' +
+    // '<div id="imgtext">Nature</div>'
+    '</div>' +
+    '<div class="row">';
 
-    $('.content').on('click', function () {
-      $page.removeClass('shazam');
-    });
-  </script>
+  var imageList = item.img;
+  console.log(imageList);
+  imageList.forEach(element => {
+    images = images + '<div class="column">' +
+      '<img src="img/' + item.dir + '/'+element + '.jpg" style="width:100%;" onclick="myFunction(this);">' +
+      '</div>';
+  })
+  images = images + '</div>';
+  $('.imgSection').html(images);
+
+}
+
+function closeModal() {
+  var imageSection = document.getElementsByClassName("grid-container");
+  imageSection[0].style.display = "grid";
+  var main = document.getElementsByClassName("main");
+  main[0].style.display = "none";
+}
+
+function preorder() {
+  var productBlock = document.getElementsByClassName("product-block");
+  productBlock[0].style.display = "none";
+  var messageBlock = document.getElementsByClassName("message-block");
+  messageBlock[0].style.display = "block";
+}
+
+var $page = $('.page');
+$('.menu_toggle').on('click', function () {
+  $page.toggleClass('shazam');
+});
+
+$('.content').on('click', function () {
+  $page.removeClass('shazam');
+});
+</script>
