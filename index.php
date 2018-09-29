@@ -50,48 +50,6 @@
   <br><br>
   <div class="content">
     <div class="grid-container">
-      <!-- <div class="card">
-        <div class="card-head">
-          <img src="img/terra_1.jpg" alt="product" class="product">
-        </div>
-        <div class="card-body">
-          <div class="product-properties">
-            <h2>Rs 1,500</h2>
-            <strike><h6>Rs 2,000</h6></strike>
-            <p>Lorem ipsum dolor sit amet con </br>sectetur adipisicing elit.</p>
-            <div class="addToCart" onclick="fadeIn()">ORDER NOW</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <img src="img/terra_1.jpg" alt="product" class="product">
-        </div>
-        <div class="card-body">
-          <div class="product-properties">
-            <h2>Rs 1,500</h2>
-            <strike><h6>Rs 2,000</h6></strike>
-            <p>Lorem ipsum dolor sit amet con </br>sectetur adipisicing elit.</p>
-            <div class="addToCart" onclick="fadeIn()">ORDER NOW</div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <img src="img/terra_1.jpg" alt="product" class="product">
-        </div>
-        <div class="card-body">
-          <div class="product-properties">
-            <h2>Rs 1,500</h2>
-            <strike><h6>Rs 2,000</h6></strike>
-            <p>Lorem ipsum dolor sit amet con </br>sectetur adipisicing elit.</p>
-            <div class="addToCart" onclick="fadeIn()">ORDER NOW</div>
-          </div>
-        </div>
-      </div> -->
     </div>
     <div class="main">
       <div class="infoSection">
@@ -151,27 +109,23 @@
   <div class="content">
   <div class="grid-container1">
       <div class="soon-container">
-          <img src="img/terra_1.jpg" alt="Avatar" class="image">
+          <img src="https://s3.ap-south-1.amazonaws.com/bhuvee-pic/terra_1.jpg" alt="Avatar" class="image">
           <div class="soon-overlay">
             <div class="soon-text"><a href="comin_soon.html">Coming Soon</a></div>
           </div>
         </div>
         <div class="soon-container">
-            <img src="img/terra_1.jpg" alt="Avatar" class="image">
+            <img src="https://s3.ap-south-1.amazonaws.com/bhuvee-pic/terra_1.jpg" alt="Avatar" class="image">
             <div class="soon-overlay">
               <div class="soon-text"><a href="comin_soon.html">Coming Soon</a></div>
             </div>
           </div>
           <div class="soon-container">
-              <img src="img/terra_1.jpg" alt="Avatar" class="image">
+              <img src="https://s3.ap-south-1.amazonaws.com/bhuvee-pic/terra_1.jpg" alt="Avatar" class="image">
               <div class="soon-overlay">
                 <div class="soon-text"><a href="comin_soon.html">Coming Soon</a></div>
               </div>
             </div>
-      <!-- <img src="img/terra_1.jpg" alt="product" class="coming_product">
-      <img src="img/terra_1.jpg" alt="product" class="coming_product">
-      <img src="img/terra_1.jpg" alt="product" class="coming_product"> -->
-      <!-- <img src="img/terra_1.jpg" alt="product" class="coming_product"> -->
     </div>
   </div>
   <div>
