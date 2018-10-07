@@ -7,27 +7,12 @@ if(isset($action)) {
     $title = 'Edit Item';
     $id = $_GET['id'];
   } else if($action  === 'add') {
-    $titme = 'Add Item';
+    $title = 'Add Item';
   }
 }
 ?>
 
 <?php include 'header.php' ?>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand mr-auto mt-2 mt-lg-0" href="#">
-          <img src="img/logo.png" width="70" height="40" alt="">
-        </a>
-        <form class="form-inline my-2 my-lg-0">
-          <button type="button" class="btn btn-default btn-circle" data-toggle="tooltip" data-placement="bottom" title="Add item"><i
-              class="fas fa-plus"></i></button>
-        </form>
-      </div>
-    </nav>
 
     <div class="container mt-3">
       <!-- Nav tabs -->
@@ -68,7 +53,7 @@ if(isset($action)) {
               </div>
             </div>
             <button type="button" value="save" class="btn btn-success" onclick="saveItem()">Save</button>
-            <button type="button" value="cancel" class="btn" onclick="window.location.replace('home.html');">Cancel</button>
+            <button type="button" value="cancel" class="btn" onclick="window.location.replace('home.php');">Cancel</button>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#warningModal">Delete</button>
           </form>
         </div>
@@ -151,25 +136,37 @@ if(isset($action)) {
           url +
           '" alt="item image" height="50" width="50" class="rounded-circle"></div><div class="p-2 flex-grow-1 bd-highlight"><span class="mr-auto">' +
           url +
-          '</span></div><div class="p-2 bd-highlight"><button type="button" class="btn transparent" data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="deleteItem(' +
-          url + ')"><i class="material-icons">delete</i></button></div></div></li>';
+          '</span></div><div class="p-2 bd-highlight"><button type="button" class="btn transparent" data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="deleteImage('+ id + ',\'' +
+          url + '\')"><i class="material-icons">delete</i></button></div></div></li>';
 
         $('#productList').append(item);
       }
 
       var imageList = [];
 
+      function deleteImage(id, url) {
+        $.ajax({
+          url: baseUrl+'deleteProductImage',
+          type: 'DELETE',
+          success: function (data) {
+            location.reload(true);
+          },
+          data: {
+            id: id,
+            url: url
+          }
+        });
+      }
+
       function deleteItem() {
         let id = '<?php echo $id; ?>';
 
         $.ajax({
-          // TODO: add main.js file containing baseurl
           url: baseUrl+'deleteProduct',
-          // url: 'https://gentle-springs-57313.herokuapp.com/public/deleteProduct',
           type: 'DELETE',
           success: function (data) {
             console.log(data);
-            window.location.replace("home.html");
+            window.location.replace("home.php");
           },
           data: {
             id: id
@@ -204,7 +201,6 @@ if(isset($action)) {
                     $('.badge').css('display', 'inline-block');
                   }
                 }
-                // window.location.replace("home.html");
               },
               data: {
                 name: name,
@@ -221,7 +217,7 @@ if(isset($action)) {
               success: function (data) {
                 console.log(data);
                 toastr["success"]("Your product is modified.");
-                // window.location.replace("home.html");
+                
               },
               data: {
                 id: id,
