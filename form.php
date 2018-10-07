@@ -1,60 +1,18 @@
 <?php
-require 'vendor/autoload.php';
-
-use Aws\S3\S3Client;
-
-$key = 'AKIAJXNN4ZP3CFJOXAJA';
-$secret = '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';
-
-$credentials = new Aws\Credentials\Credentials($key, $secret);
-
-$s3 = new Aws\S3\S3Client([
-    'region'  => 'ap-south-1',
-    'version' => 'latest',
-    'credentials' => $credentials
-]);
-
-
 $action = $_GET['action'];
 $id = null;
 
 if(isset($action)) {
   if($action === 'edit') {
+    $title = 'Edit Item';
     $id = $_GET['id'];
+  } else if($action  === 'add') {
+    $titme = 'Add Item';
   }
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Product Details</title>
-  </head>
-
-  <body>
+<?php include 'header.php' ?>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -158,24 +116,6 @@ if(isset($action)) {
     </div>
 
     <script>
-      toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-      };
-
       var id = null;
       $(document).ready(function () {
         let action = '<?php echo $action; ?>';
@@ -183,7 +123,7 @@ if(isset($action)) {
         if (action == 'edit') {
           id = '<?php echo $id; ?>';
           $("#id").val(id);
-          $.get('http://localhost/bhuvee-api/public/getProductDetails/' + id, function (data) {
+          $.get(baseUrl + 'getProductDetails/' + id, function (data) {
             var resp = JSON.parse(data)['result'];
             console.log(resp);
             $('#product_name').val(resp['p_name']);
@@ -217,8 +157,6 @@ if(isset($action)) {
         $('#productList').append(item);
       }
 
-
-
       var imageList = [];
 
       function deleteItem() {
@@ -226,8 +164,8 @@ if(isset($action)) {
 
         $.ajax({
           // TODO: add main.js file containing baseurl
-          // url: 'http://localhost/bhuvee-api/public/deleteProduct',
-          url: 'https://gentle-springs-57313.herokuapp.com/public/deleteProduct',
+          url: baseUrl+'deleteProduct',
+          // url: 'https://gentle-springs-57313.herokuapp.com/public/deleteProduct',
           type: 'DELETE',
           success: function (data) {
             console.log(data);
@@ -252,7 +190,7 @@ if(isset($action)) {
         switch (action) {
           case 'add':
             $.ajax({
-              url: 'http://localhost/bhuvee-api/public/addProduct',
+              url: baseUrl + 'addProduct',
               type: 'POST',
               success: function (data) {
                 var resp = JSON.parse(data);
@@ -278,12 +216,12 @@ if(isset($action)) {
           case 'edit':
           let id = '<?php echo $id; ?>';
             $.ajax({
-              url: 'http://localhost/bhuvee-api/public/updateProduct',
+              url: baseUrl+'updateProduct',
               type: 'PUT',
               success: function (data) {
                 console.log(data);
                 toastr["success"]("Your product is modified.");
-                window.location.replace("home.html");
+                // window.location.replace("home.html");
               },
               data: {
                 id: id,
