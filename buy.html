@@ -4,10 +4,12 @@
 		<meta charset="utf-8">
 		<title>Place Order</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/ico" href="https://s3.ap-south-1.amazonaws.com/bhuvee-pic/assets/logo.png" />
 		
 		<!-- MATERIAL DESIGN ICONIC FONT -->
 		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="styles/buy.css">
 	</head>
@@ -22,81 +24,62 @@
 				<form>
 					<h3>PLACE ORDER</h3>
 					<div class="form-group">
-						<input type="text" name="first_name"  placeholder="First Name" class="form-control">
-						<input type="text" name="last_name"  placeholder="Last Name" class="form-control">
+						<input type="text" name="first_name"  placeholder="First Name" required class="form-control">
+						<input type="text" name="last_name"  placeholder="Last Name" required class="form-control">
                     </div>
                     <div class="form-wrapper">
-                            <input type="email" name="email" placeholder="E-mail"  class="form-control">
+                            <input type="email" name="email" placeholder="E-mail" required class="form-control">
                     </div>
 					<div class="form-wrapper">
-						<input type="text" name="address" placeholder="Address" class="form-control">
+						<input type="text" name="address" placeholder="Address" required class="form-control">
                     </div>
 					<div class="form-wrapper">
-						<input type="text" name="state" placeholder="State" class="form-control">
-						<input type="text" name="city" placeholder="City" class="form-control">
+						<input type="text" name="state" placeholder="State" required class="form-control">
+						<input type="text" name="city" placeholder="City" required class="form-control">
 					</div>
 					<div class="form-wrapper">
-						<input type="number" name="pincode" placeholder="Pincode" class="form-control">
+						<input type="number" name="pincode" placeholder="Pincode" required class="form-control">
 					</div>
-					<input type="submit">Order</button>
+					<input type="submit" name="submit" value="Send Mail">
 				</form>
 			</div>
 		</div>
 		
 		<script src="https://code.jquery.com/jquery-1.10.2.min.js" integrity="sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
 		crossorigin="anonymous"></script>
-		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 		<script>
-
-	// 		toastr.options = {
-  //   "closeButton": true,
-  //   "debug": false,
-  //   "newestOnTop": false,
-  //   "progressBar": false,
-  //   "positionClass": "toast-top-right",
-  //   "preventDuplicates": false,
-  //   "onclick": null,
-  //   "showDuration": "300",
-  //   "hideDuration": "1000",
-  //   "timeOut": "5000",
-  //   "extendedTimeOut": "1000",
-  //   "showEasing": "swing",
-  //   "hideEasing": "linear",
-  //   "showMethod": "fadeIn",
-  //   "hideMethod": "fadeOut"
-  // };
-		
-function sendMail() {
-// $.ajax({
-// url: "mail.php",
-// type: "POST",
-// data: $(this).serialize(),
-// success: function (data) {
-// // toastr["success"]("Thank you!! for showing interest. \n We will get back to you soon.");
-// alert("Success: "+data);
-// },
-// error: function (jXHR, textStatus, errorThrown) {
-// alert("Error: "+errorThrown);
-// }
-// });
-}
+			toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
 
 $('form').on('submit', function (e) {
 e.preventDefault();
-alert("Sending");
 $.ajax({
 url: "mail.php",
 type: "POST",
 data: $(this).serialize(),
 success: function (data) {
-// toastr["success"]("Thank you!! for showing interest. \n We will get back to you soon.");
-// alert("Data: "+data);
-console.log(data);
+toastr["success"]("Thank you!! for showing interest. \n We will get back to you soon.");
 },
 error: function (jXHR, textStatus, errorThrown) {
-alert(errorThrown);
+	console.log(errorThrown);
 }
 });
 });
