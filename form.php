@@ -64,7 +64,8 @@ if(isset($action)) {
       <ul class="list-group" id="productList"></ul>
     </div>
 
-          <form action="http://localhost/bhuvee-api/public/addProductImage" method="post" enctype="multipart/form-data">
+          <!-- <form action="http://localhost/bhuvee-api/public/addProductImage" method="post" enctype="multipart/form-data"> -->
+          <form action="http://gentle-springs-57313.herokuapp.com/public/addProductImage" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="id" id="id">
             <div class="form-group">
               <input type="file" name="my_file[]" id="image" multiple>

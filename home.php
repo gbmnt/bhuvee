@@ -1,7 +1,7 @@
 <?php 
-$title = 'Home';
-include 'header.php'; ?>
-
+$title="Home";
+include 'header.php';
+?>
 
 <div class="container mt-3">
   <ul class="list-group" id="productList"></ul>

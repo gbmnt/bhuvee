@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/ico" href="https://s3.ap-south-1.amazonaws.com/bhuvee-pic/assets/logo.png" />
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -25,6 +27,16 @@
       crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <script>
+    $("#signout").on('click',function(e) {
+      <?php 
+        if(isset($_SESSION['isLogin']))
+          unset($_SESSION['isLogin'])
+        ?>
+      window.location.replace('Login.php');
+      });
+    </script>
     <title><?php echo $title; ?></title>
   </head>
   <body>
@@ -35,10 +47,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <a class="navbar-brand mr-auto mt-2 mt-lg-0" href="home.php">
-      <img src="img/logo.png" width="70" height="40" alt="">
-      <!-- <img src="https://s3.ap-south-1.amazonaws.com/bhuvee-pic/abc/img.jpg" width="70" height="40" alt=""> -->
+      <!-- <img src="img/logo.png" width="70" height="40" alt=""> -->
+      <img src="https://s3.ap-south-1.amazonaws.com/bhuvee-pic/assets/logo.png" width="70" height="40" alt="">
     </a>
     <a href="form.php?action=add" class="btn btn-default btn-circle" data-toggle="tooltip" data-placement="bottom"
-      title="Add item"><i class="fas fa-plus"></i></a>
+      title="Add item" style="margin-right: 10px;"><i class="fas fa-plus"></i></a>
+    
+    <a href="" class="btn btn-default btn-circle" id="signout" data-toggle="tooltip" data-placement="bottom"
+      title="Sign Out"><i class="fas fa-sign-out-alt"></i></a>
   </div>
 </nav>
