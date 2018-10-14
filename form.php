@@ -69,10 +69,6 @@ if(isset($action)) {
           <input type="hidden" value="" name="id" id="id">
             <div class="form-group">
               <input type="file" name="my_file[]" id="image" multiple>
-              <button type="button" class="btn btn-primary">
-                Profile <span class="badge badge-light">9</span>
-                <span class="sr-only">unread messages</span>
-              </button>
             </div>
             <button type="submit" value="submit" name='submit' class="btn btn-success">Upload</button>
           </form>
